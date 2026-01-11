@@ -1,0 +1,56 @@
+1. When to use () => { ... } (Block Body)
+You use this when you need to perform actions or calculations before you give an answer.
+
+The functional case: "The Thinker"
+
+Defining State/Variables: If you need to create a variable inside the function.
+
+Logging/Debugging: If you need to console.log something to see if it works.
+
+Conditional Logic: If you need if/else statements or switch cases.
+
+Side Effects: Inside a useEffect or an onClick handler where you are changing data.
+
+Example:
+
+JavaScript
+
+const handlePurchase = (item) => {
+  // Logic before return
+  if (!item.inStock) {
+    alert("Out of stock!");
+    return; // Stop here
+  }
+  
+  const tax = item.price * 0.13;
+  setCart([...cart, { ...item, tax }]); // Perform action
+};
+2. When to use () => ( ... ) (Parenthesized Body)
+You use this when your only goal is to output UI. It is purely for "visual" functions.
+
+The functional case: "The Presenter"
+
+Functional Components: Simple components that just take props and show HTML.
+
+Mapping UI: Taking an array of data and instantly turning it into a list of tags.
+
+Cleanliness: It makes your code look much more like a "Template" and less like a "Script."
+
+Example:
+
+JavaScript
+
+// This is strictly for rendering. No thinking, just showing.
+const UserProfile = ({ name, bio }) => (
+  <section className="p-4 bg-slate-900 rounded-lg">
+    <h2 className="text-white">{name}</h2>
+    <p className="text-slate-400">{bio}</p>
+  </section>
+);
+
+ const updateTodo =(id,todo)=>{
+ setTodo((puraanoValue)=>puraanoValue.map((prevTodo) => (
+  prevTodo.id ===id ? todo: prevTodo
+ )))
+ }
+in this
